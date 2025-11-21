@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramashankar K Pandey - GitHub Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            padding: 20px;
+        }
+
+        .profile-card {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #24292e 0%, #3a3f44 100%);
+            padding: 40px 30px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            overflow: hidden;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .avatar i {
+            font-size: 60px;
+            color: white;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+
+        .location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .location i {
+            margin-right: 5px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+
+        .summary {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .github {
+            background: #333;
+        }
+
+        .linkedin {
+            background: #0077b5;
+        }
+
+        .twitter {
+            background: #1da1f2;
+        }
+
+        .portfolio {
+            background: #764ba2;
+        }
+
+        .view-profile-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .view-profile-btn:hover {
+            background: linear-gradient(to right, #764ba2, #667eea);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Dark theme styles */
+        body.dark-theme {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+
+        .dark-theme .profile-card {
+            background: rgba(45, 45, 45, 0.95);
+            color: #f0f0f0;
+        }
+
+        .dark-theme .card-body {
+            color: #f0f0f0;
+        }
+
+        .dark-theme .section-title {
+            color: #f0f0f0;
+        }
+
+        .dark-theme .summary {
+            color: #ccc;
+        }
+
+        .dark-theme .stat-value {
+            color: #f0f0f0;
+        }
+
+        .dark-theme .stat-label {
+            color: #aaa;
+        }
+
+        @media (max-width: 480px) {
+            .profile-card {
+                max-width: 100%;
+            }
+            
+            .card-header {
+                padding: 30px 20px 20px;
+            }
+            
+            .card-body {
+                padding: 20px;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .stat {
+                flex: 1 0 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="card-header">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="avatar">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1 class="name">Ramashankar K Pandey</h1>
+            <p class="job-title">Web Developer</p>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>India</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <h2 class="section-title">About Me</h2>
+            <p class="summary">
+                Passionate and dedicated web developer with expertise in modern web technologies. 
+                I specialize in creating responsive, user-friendly websites and applications using 
+                HTML, CSS, JavaScript, and React. With a strong focus on clean code and best practices, 
+                I enjoy turning complex problems into simple, beautiful designs. Always eager to learn 
+                new technologies and take on challenging projects.
+            </p>
+            
+            <h2 class="section-title">Skills</h2>
+            <div class="skills">
+                <div class="skill-tag">HTML5</div>
+                <div class="skill-tag">CSS3</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">Node.js</div>
+                <div class="skill-tag">Git</div>
+                <div class="skill-tag">Responsive Design</div>
+                <div class="skill-tag">UI/UX</div>
+            </div>
+            
+            <h2 class="section-title">GitHub Stats</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value" id="repoCount">15</div>
+                    <div class="stat-label">Repositories</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="followerCount">42</div>
+                    <div class="stat-label">Followers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="followingCount">28</div>
+                    <div class="stat-label">Following</div>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://github.com/ramapandey420" target="_blank" class="social-link github">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ramashankar-pandey-420/" target="_blank" class="social-link linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/ramapandey420" target="_blank" class="social-link twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://ramapandey420.github.io/Portfolio-/" target="_blank" class="social-link portfolio">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+            
+            <a href="https://github.com/ramapandey420/Portfolio-" target="_blank" class="view-profile-btn">
+                <i class="fab fa-github"></i> View My Portfolio Repository
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Animate stats when they appear
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stats = entry.target.querySelectorAll('.stat-value');
+                    stats.forEach(stat => {
+                        const targetValue = parseInt(stat.textContent);
+                        let currentValue = 0;
+                        const increment = targetValue / 30;
+                        
+                        const updateCounter = () => {
+                            if (currentValue < targetValue) {
+                                currentValue += increment;
+                                stat.textContent = Math.ceil(currentValue);
+                                setTimeout(updateCounter, 50);
+                            } else {
+                                stat.textContent = targetValue;
+                            }
+                        };
+                        
+                        updateCounter();
+                    });
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe the stats section
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Add animation to skill tags
+        const skillTags = document.querySelectorAll('.skill-tag');
+        skillTags.forEach((tag, index) => {
+            tag.style.opacity = '0';
+            tag.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                tag.style.transition = 'all 0.5s ease';
+                tag.style.opacity = '1';
+                tag.style.transform = 'translateY(0)';
+            }, 100 * index);
+        });
+
+        // Add click tracking for analytics (optional)
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a[target="_blank"]');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    console.log(`Clicked on: ${link.href}`);
+                    // You can add analytics tracking here
+                });
+            });
+        });
+    </script>
+</body>
+</html>
